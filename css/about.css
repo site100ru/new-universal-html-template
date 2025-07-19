@@ -1,0 +1,240 @@
+/* CSS переменные для секции "О нас" */
+:root {
+	/* Цвета */
+	--about-bg-color: var(--color-light);
+	--about-title-color: var(--title-color);
+	--about-subtitle-color: var(--subtitle-color);
+	--about-text-color: var(--text-color);
+	--about-border-radius: var(--border-radius);
+
+	/* Отступы и размеры */
+	--about-section-padding: var(--section-padding);
+	--about-section-margin-bottom: var(--section-margin-bottom);
+	--about-title-font-size: var(--title-font-size);
+	--about-subtitle-font-size: var(--subtitle-font-size);
+	--about-text-font-size: var(--text-font-size);
+	--about-social-padding: 0;
+
+	/* Шрифты */
+	/* Заголовок */
+	--about-font-family: var(--font-family);
+	--about-title-font-weight: 700;
+	--about-title-line-height: var(--line-height);
+
+	/* Подзаголовок */
+	--about-subtitle-font-weight: 500;
+	--about-subtitle-line-height: var(--line-height);
+
+	/* Текст */
+	--about-text-font-weight: 300;
+	--about-text-line-height: var(--line-height-big);
+
+	/* Эффекты */
+	--about-hover-scale: var(--hover-scale);
+	--about-transition-duration: var(--transition-duration);
+	--about-overlay-opacity: var(--overlay-opacity);
+	--about-overlay-hover-opacity: var(--overlay-hover-opacity);
+
+	/* Размеры изображений */
+	--about-image-aspect-ratio: var(--image-aspect-ratio);
+	--about-zoom-icon-size: var(--zoom-icon-size);
+
+	/* Размеры социальных сетей */
+	--about-social-icon-width: var(--social-icon-width);
+	--about-social-icon-height: var(--social-icon-height);
+	--about-social-icon-hover-scale: var(--social-icon-hover-scale);
+}
+
+.section {
+	padding-block: var(--about-section-padding);
+}
+
+/* Основные стили секции */
+.section-about {
+	background-color: var(--about-bg-color);
+}
+
+.section-about .section-title-wrapper {
+	margin-bottom: var(--about-section-margin-bottom);
+}
+
+.section-about .section-title {
+	font-family: var(--about-font-family);
+	font-size: var(--about-title-font-size);
+	line-height: var(--about-title-line-height);
+	font-weight: var(--about-title-font-weight);
+	letter-spacing: -0.02rem;
+	margin-bottom: 1rem;
+	color: var(--about-title-color);
+}
+
+.section-about .section-subtitle {
+	font-family: var(--about-font-family);
+	font-size: var(--about-subtitle-font-size);
+	line-height: var(--about-subtitle-line-height);
+	font-weight: var(--about-subtitle-font-weight);
+	letter-spacing: -0.02rem;
+	margin-bottom: 1rem;
+	color: var(--about-subtitle-color);
+}
+
+/* Стили изображений и карусели */
+.section-about .section-image .carousel-inner {
+	border-radius: var(--about-border-radius);
+	overflow: hidden;
+}
+
+.section-about .section-image .img-wrapper {
+	overflow: hidden;
+	border-radius: var(--about-border-radius);
+	position: relative;
+}
+
+.section-about .section-image .carousel-item {
+	border-radius: var(--about-border-radius);
+	overflow: hidden;
+}
+
+.section-about .section-image .carousel-inner img.single-product-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--about-image-aspect-ratio);
+	transition: transform var(--about-transition-duration) ease;
+	border-radius: 0;
+	object-fit: cover;
+	max-width: 636px;
+	max-height: 424px;
+}
+
+.section-about .section-image .gallery-2691:hover .single-product-img {
+	transform: scale(var(--about-hover-scale));
+}
+
+/* Стили кнопки галереи */
+.section-about .section-image .gallery-2691 {
+	padding: 0;
+	border: none;
+	outline: none;
+	border-radius: var(--about-border-radius);
+	height: 100%;
+	width: 100%;
+	background: none;
+	cursor: pointer;
+	overflow: hidden;
+	display: block;
+}
+
+/* Стили оверлея */
+.section-about .section-image .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: var(--about-overlay-hover-opacity);
+	transition: opacity 0.3s;
+}
+
+.section-about .section-image .gallery-2691:hover .overlay {
+	opacity: var(--about-overlay-opacity);
+}
+
+.section-about .section-image .carousel-inner img.zoom-icon {
+	height: var(--about-zoom-icon-size);
+	width: var(--about-zoom-icon-size);
+	object-fit: contain;
+}
+
+/* Стили текста */
+.section-about p {
+	font-family: var(--about-font-family);
+	font-size: var(--about-text-font-size);
+	font-weight: var(--about-text-font-weight);
+	line-height: var(--about-text-line-height);
+	color: var(--about-text-color);
+}
+
+/* Стили социальных сетей */
+.cheaper-social-list .nav-link {
+	padding: var(--about-social-padding);
+	transition: transform var(--about-transition-duration) ease;
+}
+
+.cheaper-social-list .nav-link:hover {
+	transform: scale(var(--about-social-icon-hover-scale));
+}
+
+.cheaper-social-list .nav-link img {
+	width: var(--about-social-icon-width);
+	height: var(--about-social-icon-height);
+	object-fit: contain;
+}
+
+/*
+******************************************
+Модальное окно галереи
+******************************************
+*/
+.modal-gallery {
+	background: var(--modal-bg-color);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: var(--modal-z-index);
+	display: none;
+}
+
+.modal-gallery .modal-image-caption {
+	color: var(--modal-text-color);
+	margin-top: 1rem;
+}
+
+.modal-gallery .carousel-inner img {
+	max-width: var(--modal-image-max-width);
+	max-height: var(--modal-image-max-height);
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.gallery-modal-close {
+	position: fixed;
+	top: var(--modal-close-position);
+	right: var(--modal-close-position);
+	z-index: var(--modal-close-z-index);
+}
+
+.btn-close {
+	background: url(../img/ico/close.svg);
+}
+
+/*
+******************************************
+Общие карусель стили
+******************************************
+*/
+
+/* Стили элементов управления каруселью */
+.carousel-control-prev,
+.carousel-control-next {
+	transition: all var(--about-transition-duration) ease;
+	opacity: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+	opacity: 0.6;
+}
+
+.carousel-control-prev-icon {
+	background-image: url(../img/ico/arrow-left.svg);
+}
+
+.carousel-control-next-icon {
+	background-image: url(../img/ico/arrow-right.svg);
+}

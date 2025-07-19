@@ -1,0 +1,75 @@
+/* Дополнительные стили для одиночных изображений */
+
+/* Стили для одиночных изображений - аналогично carousel-inner */
+.single-image-wrapper {
+	border-radius: var(--border-radius);
+	overflow: hidden;
+}
+
+.single-image-wrapper .img-wrapper {
+	overflow: hidden;
+	border-radius: var(--border-radius);
+	position: relative;
+}
+
+.single-image-wrapper img.single-product-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--image-aspect-ratio);
+	transition: transform var(--transition-duration) ease;
+	border-radius: 0;
+	object-fit: cover;
+	max-width: 636px;
+	max-height: 424px;
+}
+
+/* Эффект увеличения при наведении только для изображений с модальными окнами */
+.single-image-wrapper .gallery-2691:hover .single-product-img {
+	transform: scale(var(--hover-scale));
+}
+
+/* Стили кнопки галереи для одиночных изображений */
+.single-image-wrapper .gallery-2691 {
+	padding: 0;
+	border: none;
+	outline: none;
+	border-radius: var(--border-radius);
+	height: 100%;
+	width: 100%;
+	background: none;
+	cursor: pointer;
+	overflow: hidden;
+	display: block;
+}
+
+/* Стили оверлея для одиночных изображений */
+.single-image-wrapper .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: var(--overlay-hover-opacity);
+	transition: opacity 0.3s;
+}
+
+.single-image-wrapper .gallery-2691:hover .overlay {
+	opacity: var(--overlay-opacity);
+}
+
+.single-image-wrapper img.zoom-icon {
+	height: var(--zoom-icon-size);
+	width: var(--zoom-icon-size);
+	object-fit: contain;
+}
+
+.single-image-wrapper.no-modal .img-wrapper {
+	cursor: default;
+}
+
+.single-image-wrapper.no-modal img.single-product-img:hover {
+	transform: none;
+}

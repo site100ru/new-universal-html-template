@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Кнопки</title>
+
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+
+		<!--
+			BASE ROOT AND FONTS CSS
+		-->
+		<link href="css/font.css" rel="stylesheet" />
+		<link href="css/root.css" rel="stylesheet" />
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/single-images.css" rel="stylesheet" />
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+		<!--
+				ЭТОТ КОД ТОЛЬКО ДЛЯ НАВИГАЦИИ ПО ЭТОЙ СТРАНИЦЕ. КОПИРОВАТЬ НЕ НАДО!
+		-->
+		<style>
+			.navigation-menu {
+				position: fixed;
+				left: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 1000;
+				background: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(10px);
+				border-radius: 12px;
+				padding: 15px;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				display: none;
+				transition: all 0.3s ease;
+				min-width: 200px;
+			}
+
+			.navigation-menu.collapsed {
+				min-width: auto;
+				padding: 10px;
+			}
+
+			.navigation-toggle {
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 5px;
+				border-radius: 6px;
+				transition: all 0.3s ease;
+				color: #666;
+				font-size: 16px;
+				margin-bottom: 10px;
+				width: 100%;
+				text-align: right;
+			}
+
+			.navigation-toggle:hover {
+				background: rgba(0, 123, 255, 0.1);
+				color: #007bff;
+			}
+
+			.navigation-content {
+				transition: all 0.3s ease;
+				overflow: hidden;
+			}
+
+			.navigation-menu.collapsed .navigation-content {
+				width: 0;
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.navigation-menu ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.navigation-menu li {
+				margin: 8px 0;
+			}
+
+			.navigation-menu a {
+				display: block;
+				padding: 8px 12px;
+				text-decoration: none;
+				color: #666;
+				border-radius: 6px;
+				transition: all 0.3s ease;
+				font-size: 14px;
+				font-weight: 500;
+				position: relative;
+				white-space: nowrap;
+			}
+
+			.navigation-menu a:hover {
+				background: rgba(0, 123, 255, 0.1);
+				color: #007bff;
+				transform: translateX(3px);
+			}
+
+			.navigation-menu a.active {
+				background: #007bff;
+				color: white;
+				box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+			}
+
+			.navigation-menu a.active::before {
+				content: '';
+				position: absolute;
+				left: -10px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 3px;
+				height: 20px;
+				background: #007bff;
+				border-radius: 2px;
+			}
+
+			@media (min-width: 992px) {
+				.navigation-menu {
+					display: block;
+				}
+			}
+
+			.section-anchor {
+				position: relative;
+				top: -80px;
+				visibility: hidden;
+			}
+		</style>
+
+		<nav class="navigation-menu">
+			<button class="navigation-toggle" onclick="toggleNavigation()">
+				<span class="toggle-icon">⟨</span>
+			</button>
+			<div class="navigation-content">
+				<ul>
+					<li><a href="base.html">База</a></li>
+					<li><a href="about.html">Компонент слайдер с картинками 6 колонок, 1 колонка пустая, 5 текст </a></li>
+					<li><a href="single-images.html">Компонент картинка 6 колонок, 1 колонка пустая, 5 текст </a></li>
+					<li><a href="section-half.html">Компонент пополам картинка и текст</a></li>
+				</ul>
+			</div>
+		</nav>
+	</body>
+</html>

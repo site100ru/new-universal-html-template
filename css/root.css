@@ -11,6 +11,8 @@
 	--title-color: var(--color-dark-alt);
 	--subtitle-color: var(--color-dark-alt);
 	--text-color: var(--color-dark);
+	--color-corporate: rgb(220, 53, 69);
+	--color-corporate-alt: rgba(220, 53, 69, 1);
 
 	/* Размеры */
 	--title-font-size: 1.875rem;
@@ -58,6 +60,7 @@
 		--social-icon-width: 32px;
 		--social-icon-height: 32px;
 		--modal-close-position: 20px;
+		--zoom-icon-size: 40px;
 	}
 }
 
@@ -70,5 +73,168 @@
 		--social-icon-width: 24px;
 		--social-icon-height: 24px;
 		--modal-close-position: 15px;
+		--zoom-icon-size: 30px;
 	}
+}
+
+/*
+******************************************
+Размер паддингов внутри секции 
+******************************************
+*/
+.section {
+	padding-block: var(--section-padding);
+}
+
+/*
+******************************************
+Заголовки 
+******************************************
+*/
+.section-title-wrapper {
+	margin-bottom: var(--section-margin-bottom);
+}
+
+.section-title {
+	font-family: var(--font-family);
+	font-size: var(--title-font-size);
+	line-height: var(--title-line-height);
+	font-weight: var(--title-font-weight);
+	letter-spacing: -0.02rem;
+	margin-bottom: 1rem;
+	color: var(--title-color);
+}
+
+.section-subtitle {
+	font-family: var(--font-family);
+	font-size: var(--subtitle-font-size);
+	line-height: var(--subtitle-line-height);
+	font-weight: var(--subtitle-font-weight);
+	letter-spacing: -0.02rem;
+	margin-bottom: 1rem;
+	color: var(--subtitle-color);
+}
+
+/*
+******************************************
+Модальное окно галереи
+******************************************
+*/
+.section-image .carousel-item {
+	border-radius: var(--border-radius);
+	overflow: hidden;
+}
+
+.section-image .carousel-inner img.single-product-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--image-aspect-ratio);
+	transition: transform var(--transition-duration) ease;
+	border-radius: 0;
+	object-fit: cover;
+	max-width: 636px;
+	max-height: 424px;
+}
+
+.section-image .gallery-2691:hover .single-product-img {
+	transform: scale(var(--hover-scale));
+}
+
+/* Стили кнопки галереи */
+.section-image .gallery-2691 {
+	padding: 0;
+	border: none;
+	outline: none;
+	border-radius: var(--border-radius);
+	height: 100%;
+	width: 100%;
+	background: none;
+	cursor: pointer;
+	overflow: hidden;
+	display: block;
+}
+
+/* Стили оверлея */
+.section-image .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: var(--overlay-hover-opacity);
+	transition: opacity 0.3s;
+}
+
+.section-image .gallery-2691:hover .overlay {
+	opacity: var(--overlay-opacity);
+}
+
+.section-image .carousel-inner img.zoom-icon {
+	height: var(--zoom-icon-size);
+	width: var(--zoom-icon-size);
+	object-fit: contain;
+}
+
+.modal-gallery {
+	background: var(--modal-bg-color);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: var(--modal-z-index);
+	display: none;
+}
+
+.modal-gallery .modal-image-caption {
+	color: var(--modal-text-color);
+	margin-top: 1rem;
+}
+
+.modal-gallery .carousel-inner img {
+	max-width: var(--modal-image-max-width);
+	max-height: var(--modal-image-max-height);
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.gallery-modal-close {
+	position: fixed;
+	top: var(--modal-close-position);
+	right: var(--modal-close-position);
+	z-index: var(--modal-close-z-index);
+}
+
+.btn-close {
+	background: url(../img/ico/close.svg);
+}
+
+/*
+******************************************
+Общие карусель стили
+******************************************
+*/
+
+/* Стили элементов управления каруселью */
+.carousel-control-prev,
+.carousel-control-next {
+	transition: all var(--transition-duration) ease;
+	opacity: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+	opacity: 0.6;
+}
+
+.carousel-control-prev-icon {
+	background-image: url(../img/ico/arrow-left.svg);
+}
+
+.carousel-control-next-icon {
+	background-image: url(../img/ico/arrow-right.svg);
 }

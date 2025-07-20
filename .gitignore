@@ -22,3 +22,5 @@ css/*
 !css/root.css
 !css/about.css
 !css/single-images.css
+!css/base.css
+!css/section-half.css

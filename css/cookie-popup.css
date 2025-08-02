@@ -1,0 +1,47 @@
+/*** Всплывающая форма Политики конфиденциальности ***/
+.popup-form {
+	position: fixed;
+	bottom: -500px; /* Форма скрыта за пределами экрана */
+	left: 0;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(8px); /* Размытие фона */
+	-webkit-backdrop-filter: blur(8px); /* Для Safari */
+	box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	box-sizing: border-box;
+	transition: bottom 0.5s ease-out;
+	z-index: 1000;
+	max-width: 100%;
+}
+
+.popup-form.active {
+	bottom: 0; /* Форма появляется снизу */
+}
+
+/*** CHECKBOX ***/
+.form-check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.form-check-input {
+	cursor: pointer;
+	margin-top: 0;
+	flex-shrink: 0;
+}
+
+.form-check-input:checked {
+	background-color: var(--color-corporate);
+	border-color: var(--color-corporate);
+}
+
+.form-check-input:focus {
+	border-color: var(--color-corporate);
+	box-shadow: 0 0 0 0.25rem rgba(255, 81, 71, 0.25);
+}
+
+.form-check-label {
+	cursor: pointer;
+}

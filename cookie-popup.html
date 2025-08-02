@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+
+		<!--
+			BASE ROOT AND FONTS CSS
+		-->
+		<link href="css/font.css" rel="stylesheet" />
+		<link href="css/root.css" rel="stylesheet" />
+		<link href="css/base.css" rel="stylesheet" />
+
+		<!--
+			CUSTOM CSS
+		-->
+		<link href="css/cookie-popup.css" rel="stylesheet" />
+
+		<title>Всплывающая плашка политики конфиденциальности</title>
+	</head>
+	<body>
+		<!-- Информация для разработчика -->
+		<!-- При переносе удалить этот код! -->
+		<div class="container mt-5">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="alert alert-info text-center">
+						<h4>Настройки Cookie Popup</h4>
+						<p class="mb-2">
+							Чтобы изменить время повторного показа popup, измените в коде:
+						</p>
+						<ul class="list-unstyled">
+							<li>
+								<strong>POPUP_DELAY_HOURS</strong> - время через которое popup
+								появится снова (в часах)
+							</li>
+							<li>
+								<strong>POPUP_SHOW_DELAY</strong> - задержка показа popup при
+								загрузке страницы (в секундах)
+							</li>
+						</ul>
+						<p class="mb-0 text-muted">
+							Текущие настройки: показ через 3 секунды, повтор через 1 час
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Необходимо добавить к формам обратной связи -->
+		<div class="form-check mt-3">
+			<input class="form-check-input" type="checkbox" id="gridCheck-6" checked />
+			<label class="form-check-label" for="gridCheck-6">
+				<p class="mb-0">
+					<small
+						>Даю согласие на обработку персональных данных. Подробнее об обработке
+						персональных данных в
+						<a
+							href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf"
+							target="_blank"
+							>Политике конфиденциальности.</a
+						></small
+					>
+				</p>
+			</label>
+		</div>
+
+		<!-- Всплывающая форма Политики конфиденциальности -->
+		<div class="popup-form" id="popupForm">
+			<div class="form-content container p-0">
+				<div class="row justify-content-center align-items-center">
+					<div class="col-md-9">
+						<p class="mb-md-0">
+							На нашем сайте используются cookie-файлы, в том числе сервисов
+							веб-аналитики. Используя сайт, вы соглашаетесь на
+							<a
+								href="<?php echo get_template_directory_uri(); ?>/docs/Consent-to-the-processing-of-personal-data.pdf"
+								target="blank"
+								>обработку персональных данных</a
+							>
+							при помощи cookie-файлов. Подробнее об обработке персональных данных вы
+							можете узнать в
+							<a
+								href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf"
+								target="blank"
+								>Политике конфиденциальности.</a
+							>
+						</p>
+					</div>
+					<div class="col-md-3 text-md-center">
+						<button id="closeBtn" class="btn btn-corporate-color-1">Понятно</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				// ========== НАСТРОЙКИ POPUP ==========
+				// Время через которое popup появится снова (в часах)
+				const POPUP_DELAY_HOURS = 1;
+
+				// Задержка показа popup при загрузке страницы (в секундах)
+				const POPUP_SHOW_DELAY = 3;
+
+				// ========== ВЫЧИСЛЯЕМЫЕ ЗНАЧЕНИЯ ==========
+				// Переводим часы в миллисекунды для внутренних вычислений
+				const POPUP_DELAY_MS = POPUP_DELAY_HOURS * 60 * 60 * 1000;
+				const POPUP_SHOW_DELAY_MS = POPUP_SHOW_DELAY * 1000;
+				// =====================================
+
+				const popupForm = document.getElementById('popupForm');
+				const closeBtn = document.getElementById('closeBtn');
+
+				// Проверяем нужно ли показывать форму
+				function shouldShowPopup() {
+					const lastClosed = localStorage.getItem('popupLastClosed');
+
+					// Если пользователь никогда не закрывал форму
+					if (!lastClosed) return true;
+
+					// Если прошло более установленного времени с последнего закрытия
+					const now = new Date().getTime();
+					return now - parseInt(lastClosed) > POPUP_DELAY_MS;
+				}
+
+				// Показываем форму если нужно
+				if (shouldShowPopup()) {
+					setTimeout(() => {
+						popupForm.classList.add('active');
+					}, POPUP_SHOW_DELAY_MS);
+				}
+
+				// Функция закрытия формы
+				function closePopup() {
+					popupForm.classList.remove('active');
+
+					// Сохраняем время закрытия
+					localStorage.setItem('popupLastClosed', new Date().getTime().toString());
+				}
+
+				// Закрытие по кнопке
+				closeBtn.addEventListener('click', closePopup);
+			});
+		</script>
+		<!-- /Всплывающая форма Политики конфиденциальности -->
+	</body>
+</html>

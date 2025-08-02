@@ -16,10 +16,11 @@
 	--color-corporate-alt: rgba(220, 53, 69, 1);
 
 	/* Размеры */
-	--title-font-size: 1.875rem;
-	--subtitle-font-size: 1.25rem;
-	--text-font-size: 1.125rem;
-	--text-font-size-sm: 0.875rem;
+	--title-font-size: 30px;
+	--subtitle-font-size: 20px;
+	--text-font-size: 18px;
+	--text-font-size-sm: 14px;
+	--links-font-size: var(--text-font-size);
 
 	/* Шрифт */
 	--font-family: 'Helvetica Neue', sans-serif;
@@ -49,6 +50,9 @@
 	--modal-close-position: 25px;
 	--modal-z-index: 9999;
 	--modal-close-z-index: 10000;
+
+	/* Скорость анимации */
+	--transition-duration: 0.3s;
 }
 
 /* Адаптивные стили */
@@ -76,6 +80,41 @@
 		--modal-close-position: 15px;
 		--zoom-icon-size: 30px;
 	}
+}
+
+body {
+	font-family: var(--font-family);
+	line-height: var(--line-height);
+}
+
+/*
+******************************************
+Ссылки
+******************************************
+*/
+a {
+	font-family: var(--font-family);
+	font-size: var(--links-font-size);
+	margin-bottom: 0;
+	text-decoration: none;
+	color: var(--color-corporate);
+	transition: all var(--transition-duration);
+}
+
+a:hover {
+	color: var(--color-corporate);
+	opacity: 0.75;
+}
+
+.small,
+.small a,
+small,
+small a {
+	font-size: var(--text-font-size-sm);
+}
+
+p {
+	font-size: var(--text-font-size);
 }
 
 /*

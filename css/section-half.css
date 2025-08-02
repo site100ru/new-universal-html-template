@@ -1,180 +1,121 @@
-/* CSS переменные для секции */
-:root {
-	/* Цвета */
-	--cheaper-bg-color: var(--color-light);
-	--cheaper-text-color: var(--color-dark);
-	--cheaper-title-color: var(--color-dark-alt);
-	--cheaper-btn-bg: #3583dc;
-	--cheaper-btn-hover-bg: #3583dc;
-	--cheaper-btn-text: var(--color-light);
-	--cheaper-border-radius: var(--border-radius);
-
-	/* Отступы и размеры */
-	--cheaper-section-padding: 3rem;
-	--cheaper-section-height: 514px;
-	--cheaper-title-font-size: 1.875rem;
-	--cheaper-text-font-size: 1.125rem;
-	--cheaper-btn-padding-x: 2.125rem;
-	--cheaper-btn-padding-y: 0.875rem;
-
-	/* Шрифты */
-	--cheaper-font-family: 'HelveticaNeueCyr', sans-serif;
-	--cheaper-title-font-weight: 700;
-	--cheaper-text-font-weight: 300;
-	--cheaper-btn-font-weight: 700;
-	--cheaper-text-line-height: 1.35;
-
-	/* Эффекты */
-	--cheaper-transition-duration: 0.5s;
-	--cheaper-btn-hover-text: #3583dc;
-}
-
-/* Основные стили секции */
-.cheaper-section {
-	position: relative;
-	padding-block: var(--cheaper-section-padding);
-	background-color: var(--cheaper-bg-color);
-	height: var(--cheaper-section-height);
-	align-content: center;
-}
-
-.cheaper-bg {
-	position: absolute;
-	inset: 0;
-	height: 100%;
-	width: 100%;
-}
-
-.cheaper-left-part,
-.cheaper-right-part {
-	flex: 0 0 50%;
-	max-width: 50%;
-	height: 100%;
-	width: 100%;
-}
-
-.cheaper-right-part .cheaper-bg-image {
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-}
-
-.cheaper-container {
-	z-index: 3;
-	position: relative;
-}
-
-/* Стили заголовка и текста */
-.cheaper-title {
-	font-family: var(--cheaper-font-family);
-	font-size: var(--cheaper-title-font-size);
-	line-height: 1;
-	font-weight: var(--cheaper-title-font-weight);
-	letter-spacing: -0.02rem;
-	color: var(--cheaper-title-color);
-}
-
-.cheaper-description {
-	font-family: var(--cheaper-font-family);
-	font-size: var(--cheaper-text-font-size);
-	font-weight: var(--cheaper-text-font-weight);
-	line-height: var(--cheaper-text-line-height);
-	color: var(--cheaper-text-color);
-}
-
-.cheaper-points {
-	max-width: 100%;
-	height: auto;
-}
-
-/* Стили кнопки */
-.cheaper-btn {
-	padding: var(--cheaper-btn-padding-y) var(--cheaper-btn-padding-x);
-	font-family: var(--cheaper-font-family);
-	font-size: 1rem;
-	font-weight: var(--cheaper-btn-font-weight);
-	line-height: 1;
-	color: var(--cheaper-btn-text);
-	background-color: var(--cheaper-btn-bg);
-	border: 1px solid var(--cheaper-btn-bg);
-	border-radius: var(--cheaper-border-radius);
-	transition: all var(--cheaper-transition-duration);
-	margin-top: var(--cheaper-section-padding);
-	margin-bottom: calc(var(--cheaper-section-padding) / 1.5);
+/* Базовые стили для демонстрации */
+.section-half {
 	position: relative;
 	overflow: hidden;
+}
+
+.half-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	z-index: 1;
 }
 
-.cheaper-btn:hover {
-	color: var(--cheaper-btn-hover-text);
-	border: 1px solid var(--cheaper-btn-hover-bg);
-	background: #fff;
+.left-part,
+.right-part {
+	flex: 0 0 50%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
 }
 
-/* Стили социальных ссылок */
-.cheaper-social-row {
-	margin-top: 1rem;
+.left-part {
+	background: #a3a3a3;
 }
 
-.cheaper-social-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	gap: 1rem;
+.img-cover {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 
-.cheaper-social-item {
-	display: flex;
+.container {
+	position: relative;
+	z-index: 2;
 }
 
-.cheaper-social-link {
-	padding: 0;
+.content-wrapper {
+	padding-block: 3rem;
 	display: flex;
 	align-items: center;
+}
+
+.section-title {
+	color: var(--title-color);
+	font-size: var(--title-font-size);
+	font-weight: var(--title-font-weight);
+	margin-bottom: 1rem;
+}
+
+.section-description {
+	color: var(--subtitle-color);
+	font-size: var(--text-font-size);
+	line-height: var(--title-line-height);
+	margin-bottom: 1.5rem;
+}
+
+.img-points {
+	margin-bottom: 1.5rem;
+}
+
+.social-list {
+	margin-top: 0;
+}
+
+.social-link {
+	padding: 0;
+	transition: all var(--transition-duration);
+}
+
+.social-link img {
+	width: var(--social-icon-width);
+	height: var(--social-icon-height);
+	transition: transform 0.3s ease;
+}
+
+/* Варианты с разными позициями фона */
+.bg-left .right-part {
+	background: #a3a3a3;
+}
+
+.bg-right .left-part {
+	background: #a3a3a3;
+}
+.bg-right .right-part {
+	background: #a3a3a3;
+}
+
+.bg-full .left-part {
+	flex: 0 0 100%;
+}
+.bg-full .right-part {
+	display: none;
+}
+
+/* Варианты с разным выравниванием текста */
+.text-left .content-wrapper {
+	justify-content: flex-start;
+}
+.text-right .content-wrapper {
+	justify-content: flex-end;
+}
+.text-center .content-wrapper {
 	justify-content: center;
-	transition: opacity var(--cheaper-transition-duration);
-}
-
-.cheaper-social-link:hover {
-	opacity: 0.7;
-}
-
-.cheaper-social-link img {
-	width: 24px;
-	height: 24px;
-	object-fit: contain;
+	text-align: center;
 }
 
 /* Адаптивные стили */
-@media (max-width: 768px) {
-	:root {
-		--cheaper-section-padding: 2rem;
-		--cheaper-section-height: auto;
-		--cheaper-title-font-size: 1.5rem;
-		--cheaper-text-font-size: 1rem;
+@media (max-width: 767.98px) {
+	.content-wrapper {
+		padding-block: 2rem;
 	}
-
-	.cheaper-section {
-		height: auto;
+	.right-part {
+		display: none !important;
 	}
-
-	.cheaper-content-col {
-		text-align: center !important;
-	}
-
-	.cheaper-social-list {
-		justify-content: center !important;
-	}
-}
-
-@media (max-width: 575.98px) {
-	:root {
-		--cheaper-section-padding: 1.5rem;
-		--cheaper-title-font-size: 1.25rem;
-		--cheaper-text-font-size: 0.9rem;
-		--cheaper-btn-padding-x: 1.5rem;
-		--cheaper-btn-padding-y: 0.75rem;
+	.left-part {
+		flex: 0 0 100% !important;
 	}
 }

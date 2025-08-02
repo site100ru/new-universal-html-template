@@ -26,6 +26,8 @@
 	--font-family: 'Helvetica Neue', sans-serif;
 	--line-height: 1;
 	--line-height-big: 1.35;
+	--title-line-height: 1.35;
+	--title-font-weight: 700;
 
 	/* Эффекты */
 	--hover-scale: 1.05;
@@ -251,6 +253,7 @@ p {
 
 .btn-close {
 	background: url(../img/ico/close.svg);
+	--bs-btn-close-white-filter: none;
 }
 
 /*

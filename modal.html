@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Современные модальные окна</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--color-corporate: rgb(220, 53, 69);
+				--color-light: #f5f5f5;
+				--color-dark: #323232;
+				--border-radius: 15px;
+				--font-family: 'Helvetica Neue', sans-serif;
+			}
+
+			.demo-buttons {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 15px;
+				margin-bottom: 30px;
+			}
+
+			.demo-btn {
+				background: white;
+				border: none;
+				padding: 20px;
+				border-radius: 12px;
+				cursor: pointer;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+				text-align: center;
+			}
+
+			.demo-btn h6 {
+				color: var(--color-corporate);
+				margin-bottom: 5px;
+			}
+
+			.demo-btn small {
+				color: #666;
+			}
+		</style>
+
+		<!--
+			BASE ROOT AND FONTS CSS
+		-->
+		<link href="css/font.css" rel="stylesheet" />
+		<link href="css/root.css" rel="stylesheet" />
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/modal.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="text-center mb-4 text-white">Современные модальные окна</h1>
+
+			<div class="demo-buttons">
+				<button class="demo-btn" data-bs-toggle="modal" data-bs-target="#splitModal-1">
+					<h6>🖼️ Изображение + Форма</h6>
+					<small>Слева картинка, справа форма</small>
+				</button>
+				<button class="demo-btn" data-bs-toggle="modal" data-bs-target="#splitModal-2">
+					<h6>🖼️ Изображение справа</h6>
+					<small>Форма слева, картинка справа</small>
+				</button>
+				<button class="demo-btn" data-bs-toggle="modal" data-bs-target="#splitModal-3">
+					<h6>📱 Компактная форма</h6>
+					<small>Минимальный размер, максимум эффекта</small>
+				</button>
+				<button class="demo-btn" data-bs-toggle="modal" data-bs-target="#splitModal-4">
+					<h6>🎨 Картинка только слева</h6>
+					<small>Полная форма справа</small>
+				</button>
+				<button class="demo-btn" data-bs-toggle="modal" data-bs-target="#splitModal-5">
+					<h6>🎨 Картинка только справа</h6>
+					<small>Полная форма слева</small>
+				</button>
+			</div>
+		</div>
+
+		<!-- Модальное окно 1: Изображение слева, форма справа -->
+		<div class="modal fade" id="splitModal-1" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-split">
+						<div class="modal-image-left">
+							<div class="image-content">
+								<h3>Получите консультацию эксперта</h3>
+								<p>
+									Наши специалисты помогут выбрать оптимальное решение и
+									рассчитают точную стоимость проекта
+								</p>
+								<div class="stats-grid">
+									<div class="stat-item">
+										<span class="stat-number">500+</span>
+										<span class="stat-label">Проектов</span>
+									</div>
+									<div class="stat-item">
+										<span class="stat-number">15</span>
+										<span class="stat-label">Лет опыта</span>
+									</div>
+									<div class="stat-item">
+										<span class="stat-number">24/7</span>
+										<span class="stat-label">Поддержка</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-form-right">
+							<button
+								type="button"
+								class="btn-close position-absolute top-0 end-0 m-3"
+								data-bs-dismiss="modal"
+							></button>
+							<h4 class="mb-4 text-center">Бесплатная консультация</h4>
+							<form>
+								<div class="mb-3">
+									<input
+										type="text"
+										class="form-control"
+										placeholder="Ваше имя"
+										required
+									/>
+								</div>
+								<div class="mb-4">
+									<input
+										type="tel"
+										class="form-control"
+										placeholder="Телефон"
+										required
+									/>
+								</div>
+								<button type="submit" class="btn w-100">
+									Получить консультацию
+								</button>
+							</form>
+							<p class="text-center mt-3 small text-muted">
+								Получите профессиональную консультацию
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Модальное окно 2: Изображение справа -->
+		<div class="modal fade" id="splitModal-2" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-reverse-split">
+						<div class="modal-form-left">
+							<button
+								type="button"
+								class="btn-close position-absolute top-0 end-0 m-3 z-3"
+								data-bs-dismiss="modal"
+							></button>
+							<h4 class="mb-3">Заказать расчет стоимости</h4>
+							<p class="text-muted mb-4">
+								Получите точную стоимость вашего проекта за 24 часа
+							</p>
+
+							<form>
+								<div class="mb-3">
+									<input
+										type="text"
+										class="form-control"
+										placeholder="Ваше имя"
+										required
+									/>
+								</div>
+								<div class="mb-4">
+									<input
+										type="tel"
+										class="form-control"
+										placeholder="Телефон для связи"
+										required
+									/>
+								</div>
+								<button type="submit" class="btn w-100">
+									Рассчитать стоимость
+								</button>
+							</form>
+						</div>
+						<div class="modal-image-right">
+							<div class="image-content">
+								<h3>Профессиональный расчет</h3>
+								<p>
+									Наши инженеры учтут все особенности вашего объекта и подберут
+									оптимальное решение
+								</p>
+								<div class="stats-grid">
+									<div class="stat-item">
+										<span class="stat-number">1000+</span>
+										<span class="stat-label">Расчетов</span>
+									</div>
+									<div class="stat-item">
+										<span class="stat-number">24ч</span>
+										<span class="stat-label">Срок</span>
+									</div>
+									<div class="stat-item">
+										<span class="stat-number">100%</span>
+										<span class="stat-label">Точность</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Модальное окно 3: Компактная форма -->
+		<div class="modal fade" id="splitModal-3" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content modal-compact">
+					<div class="compact-header">
+						<button type="button" class="close-button-custom" data-bs-dismiss="modal">
+							✕
+						</button>
+						<div class="compact-title">⚡ Экспресс-заявка</div>
+						<div class="compact-subtitle">Перезвоним за 5 минут</div>
+					</div>
+					<div class="compact-body">
+						<form>
+							<div class="mb-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Имя"
+									required
+								/>
+							</div>
+							<div class="mb-4">
+								<input
+									type="tel"
+									class="form-control"
+									placeholder="Телефон"
+									required
+								/>
+							</div>
+							<button type="submit" class="btn w-100">Жду звонка!</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Модальное окно 4: Картинка только слева -->
+		<div class="modal fade" id="splitModal-4" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-split">
+						<div class="modal-simple-image-left"></div>
+						<div class="modal-clean-form">
+							<button
+								type="button"
+								class="btn-close position-absolute top-0 end-0 m-3"
+								data-bs-dismiss="modal"
+								style="filter: invert(1)"
+							></button>
+							<h4 class="form-title">Оставить заявку</h4>
+							<p class="form-subtitle">
+								Наш специалист свяжется с вами для уточнения деталей
+							</p>
+
+							<form>
+								<div class="mb-3">
+									<input
+										type="text"
+										class="form-control"
+										placeholder="Ваше имя"
+										required
+									/>
+								</div>
+								<div class="mb-4">
+									<input
+										type="tel"
+										class="form-control"
+										placeholder="Номер телефона"
+										required
+									/>
+								</div>
+								<button type="submit" class="btn w-100">Отправить заявку</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Модальное окно 5: Картинка только справа -->
+		<div class="modal fade" id="splitModal-5" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-split">
+						<div class="modal-clean-form">
+							<button
+								type="button"
+								class="btn-close position-absolute top-0 end-0 m-3 z-3"
+								data-bs-dismiss="modal"
+								style="filter: invert(1)"
+							></button>
+							<h4 class="form-title">Записаться на консультацию</h4>
+							<p class="form-subtitle">
+								Получите экспертную помощь в выборе оптимального решения
+							</p>
+
+							<form>
+								<div class="mb-3">
+									<input
+										type="text"
+										class="form-control"
+										placeholder="Ваше имя"
+										required
+									/>
+								</div>
+								<div class="mb-4">
+									<input
+										type="tel"
+										class="form-control"
+										placeholder="Контактный телефон"
+										required
+									/>
+								</div>
+								<button type="submit" class="btn w-100">Записаться</button>
+							</form>
+						</div>
+						<div class="modal-simple-image-right"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row mt-5">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header">
+							<h5 class="mb-0">Система автопоказа модальных окон</h5>
+							<small>Простая настройка за 3 шага</small>
+						</div>
+						<div class="card-body">
+							<!-- Шаг 1 -->
+							<div class="alert alert-primary">
+								<h6 class="alert-heading">Подключить файл</h6>
+								<p class="mb-2">
+									Скачайте <code>modal-scroll.js</code> и подключите перед
+									<code>&lt;/body&gt;</code>:
+								</p>
+								<code>&lt;script src="js/modal-scroll.js"&gt;&lt;/script&gt;</code>
+							</div>
+
+							<!-- Шаг 2 -->
+							<div class="alert alert-success">
+								<h6 class="alert-heading">Указать ID модальных окон</h6>
+								<p class="mb-2">
+									В файле <code>modal-scroll.js</code> измените modalId на рабочее
+									модальное окон из списка ниже:
+								</p>
+								<code
+									>modalIds: ['splitModal-1', 'splitModal-2', 'splitModal-3',
+									'splitModal-4', 'splitModal-5']</code
+								>
+							</div>
+
+							<!-- Шаг 3 -->
+							<div class="alert alert-warning">
+								<h6 class="alert-heading">Основные настройки</h6>
+								<div class="row">
+									<div class="col-md-6">
+										<strong>На каком % скролла показывать:</strong><br />
+										<code>scrollThreshold: 0.5</code> (50%)<br />
+										<small class="text-muted">0.3 = 30%, 0.7 = 70%</small>
+									</div>
+									<div class="col-md-6">
+										<strong>Пауза между показами:</strong><br />
+										<code>cooldownHours: 12</code> (12 часов)<br />
+										<small class="text-muted">6 = 6 часов, 24 = сутки</small>
+									</div>
+								</div>
+							</div>
+
+							<!-- Тестирование -->
+							<div class="text-center mt-3">
+								<small class="text-muted">
+									<strong>Для тестирования:</strong> F12 → Консоль →
+									<code>resetModalTimers()</code>
+								</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="js/modal-scroll.js"></script>
+	</body>
+</html>

@@ -15,6 +15,7 @@ img/*
 js/*
 !js/bootstrap.bundle.min.js
 !js/gallery.js
+!js/modal-scroll.js
 
 css/*
 !css/bootstrap.min.css
@@ -26,3 +27,4 @@ css/*
 !css/section-half.css
 !css/portfolio.css
 !css/cookie-popup.css
+!css/modal.css

@@ -14,6 +14,7 @@
 	--text-color: var(--color-dark);
 	--color-corporate: rgb(220, 53, 69);
 	--color-corporate-alt: rgba(220, 53, 69, 1);
+	--color-corporate-box-shadow: rgba(220, 53, 69, 0.3);
 
 	/* Размеры */
 	--title-font-size: 30px;
@@ -23,7 +24,7 @@
 	--links-font-size: var(--text-font-size);
 
 	/* Шрифт */
-	--font-family: 'Helvetica Neue', sans-serif;
+	--font-family: 'HelveticaNeueCyr', sans-serif;
 	--line-height: 1;
 	--line-height-big: 1.35;
 	--title-line-height: 1.35;
@@ -256,6 +257,10 @@ p {
 	--bs-btn-close-white-filter: none;
 }
 
+.modal .btn-close:focus {
+	--bs-btn-close-focus-shadow: none;
+}
+
 /*
 ******************************************
 Общие карусель стили
@@ -280,4 +285,9 @@ p {
 
 .carousel-control-next-icon {
 	background-image: url(../img/ico/arrow-right.svg);
+}
+
+.form-control:focus {
+	border-color: var(--color-corporate-box-shadow);
+	box-shadow: 0 0 0 0.25rem var(--color-corporate-box-shadow);
 }
